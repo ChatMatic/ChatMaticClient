@@ -1,0 +1,21 @@
+{
+  "name": "swagchat",
+  "description": "Electron based chat application",
+  "authors": [
+    "jdegger",
+    "philhudson91"
+  ],
+  "homepage": "https://github.com/philhudson91/SwagChat",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3"
+  }
+}

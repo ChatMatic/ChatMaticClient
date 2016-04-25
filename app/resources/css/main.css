@@ -1,0 +1,70 @@
+/* We want scss here, but for now just testing. I wrote all the selectors
+   as nested as possible so it converts very easily */
+
+body {
+
+	margin: 0;
+	font-family: 'Palanquin', sans-serif;
+
+}
+
+	body header {
+
+		height: 40px;
+		line-height: 40px;
+
+		font-size: 14px;
+
+		border-bottom: 4px solid #FFCC00;
+
+		background: rgb(48, 48, 48);
+		color: white;
+
+	}
+
+		body header a {
+
+			text-decoration: none;
+			color: white;
+
+			display: block;
+			height: 40px;
+
+			padding: 0 20px;
+
+			float: left;
+
+		}
+
+			body header a:hover,
+			body header a.active {
+
+				color: #FFCC00;
+				background: rgb(70, 70, 70);
+
+			}
+
+			body header a i.fa {
+
+				font-size: 17px;
+				padding-right: 4px;
+
+			}
+
+	body #webviewCollection {
+
+		position: fixed;
+		top: 44px;
+		right: 0;
+		bottom: 0;
+		left: 0;
+
+	}
+
+		body #webviewCollection webview {
+
+			height: 100%;
+			width: 100%;
+
+		}
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Totally not Franz</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Palanquin:400,300,100,200,700,600,500" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./resources/css/main.css" />
+</head>
+<body>
+    <header>
+        <!-- using onclick here, should be replaced by proper DOM injected events -->
+        <a href="#settings" onclick="switchWebview('settings');">
+            <i class="fa fa-home" aria-hidden="true"></i> Settings
+        </a>
+        <a href="#whatsapp" onclick="switchWebview('whatsapp');">
+            <i class="fa fa-whatsapp" aria-hidden="true"></i> Whatsapp
+        </a>
+    </header>
+    <div id="webviewCollection">
+        <webview id="settings" src="./settings.html"></webview>
+        <webview id="whatsapp" src="https://web.whatsapp.com" style="display: none;"></webview>
+    </div>
+    <script type='text/javascript' src='./resources/js/main.js'></script>
+</body>
+</html>

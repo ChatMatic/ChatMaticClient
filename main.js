@@ -1,51 +1,81 @@
 'use strict';
 
+// initiate
 const electron = require('electron');
-// Module to control application life.
 const app = electron.app;
-// Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
-function createWindow () {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600});
+// packages
+const storage = require('electron-json-storage');
 
-  // and load the index.html of the app.
-  mainWindow.loadURL('file://' + __dirname + '/index.html');
-
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
-
-  // Emitted when the window is closed.
-  mainWindow.on('closed', function() {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    mainWindow = null;
-  });
-}
-
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-app.on('ready', createWindow);
-
-// Quit when all windows are closed.
-app.on('window-all-closed', function () {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+storage.set('foobar', { foo: 'bar' }, function(error) {
+  if (error) throw error;
 });
 
-app.on('activate', function () {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (mainWindow === null) {
-    createWindow();
-  }
+// window function
+function createWindow() {
+
+    // load stored browser window data
+    storage.get('windowSize', function(error, windowSize) {
+
+        // Create the browser window.
+        mainWindow = new BrowserWindow({
+            width: windowSize.width,
+            height: windowSize.height,
+            x: windowSize.x,
+            y: windowSize.y
+        });
+
+        // and load the index.html of the app.
+        mainWindow.loadURL('file://' + __dirname + '/app/index.html');
+
+        // Emitted when the window is closed.
+        mainWindow.on('closed', function() {
+            mainWindow = null;
+        });
+
+        // save the changed size of a window
+        mainWindow.on('resize', saveWindowBounds);
+        mainWindow.on('move', saveWindowBounds);
+
+    });
+
+    // toggle to be able to see stuff
+    // mainWindow.webContents.openDevTools();
+
+
+}
+
+function saveWindowBounds(){
+
+    // get the size
+    let bounds = mainWindow.getBounds();
+
+    // save size
+    storage.set('windowSize', bounds);
+
+}
+
+// create window when electron is loaded
+app.on('ready', createWindow);
+
+// quit
+app.on('window-all-closed', function() {
+
+    // os x stays open
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
+
+});
+
+// reactivate closed windows on os x
+app.on('activate', function() {
+
+    if (mainWindow === null) {
+        createWindow();
+    }
+
 });

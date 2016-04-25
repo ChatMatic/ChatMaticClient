@@ -1,0 +1,14 @@
+/* We want scss here, but for now just testing. I wrote all the selectors
+   as nested as possible so it converts very easily */
+
+body {
+
+	margin: 0;
+	font-family: 'Palanquin', sans-serif;
+
+	padding: 5px 15px;
+
+	background: rgba(240, 240, 240, 1);
+
+}
+
