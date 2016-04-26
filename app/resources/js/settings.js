@@ -1,9 +1,13 @@
+// IPC to communicate from webview to main process
 const electron = require('electron');
 const ipcRenderer = electron.ipcRenderer;
 
+// require jquery
+window.$ = window.jQuery = require('./bower_components/jquery/dist/jquery.min.js');
+
 var SettingsView = {
     init: function (){
-        console.log("init");
+        console.log("init settings view");
     },
 
     toggleAddAccountForms: function(identifier) {
@@ -29,3 +33,5 @@ var SettingsView = {
     }
 
 };
+
+SettingsView.init();
