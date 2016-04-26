@@ -9,51 +9,82 @@
     <link rel="stylesheet" href="./resources/css/settings.css" />
 </head>
 <body>
-    <h1>Settings</h1>
-    <p>(There is nothing here, just hit the Whatsapp menu button to switch the webview)</p>
+
+    <div class="prefPane">
+        <h1>Settings</h1>
+        <p>Totally not Franz is completely customizable. Adjust your settings here to make Totally not Franz as awesome as possible.</p>
+
+        <p><strong>This is just a test setup to make layout changes possible in the future. The design sucks and needs to be redone by someone with actual design talent.</strong></p>
+    </div>
+
+    <div class="prefPane">
+        <h2>Layout preferences</h2>
+        <div class="layoutPreferences">
+
+            <a href="#" class="layoutType selected">
+                <h3>Tabs</h3>
+                <img src="https://placeholdit.imgix.net/~text?txtsize=15&txt=example%20of%20what%20it%20looks%20like&w=150&h=150" />
+            </a>
+
+            <a href="#" class="layoutType">
+                <h3>Sidebar</h3>
+                <img src="https://placeholdit.imgix.net/~text?txtsize=15&txt=example%20of%20what%20it%20looks%20like&w=150&h=150" />
+            </a>
+
+            <a href="#" class="layoutType">
+                <h3>Taskbar</h3>
+                <img src="https://placeholdit.imgix.net/~text?txtsize=15&txt=example%20of%20what%20it%20looks%20like&w=150&h=150" />
+            </a>
+
+        </div>
+    </div>
 
 
-    <h3>Supppp :) Add some services here yo.</h3>
+    <div class="prefPane">
 
-    <a href="#" onclick="">
-        <i class="fa fa-whatsapp" aria-hidden="true"></i> Whatsapp
-    </a>
-    <a href="#" id="add-messenger-account" onclick="SettingsView.toggleAddAccountForms('add-messenger-account-form')">
-        <i class="fa fa-facebook-f" aria-hidden="true"></i> Messenger
-    </a>
-    <a href="#" onclick="">
-        <i class="fa fa-slack" aria-hidden="true"></i> Slack
-    </a>
+        <h2>Phil tests</h2>
 
-    <a href="#" onclick="">
-        <i class="fa fa-skype" aria-hidden="true"></i> Skype
-    </a>
+        <a href="#" onclick="">
+            <i class="fa fa-whatsapp" aria-hidden="true"></i> Whatsapp
+        </a>
+        <a href="#" id="add-messenger-account" onclick="SettingsView.toggleAddAccountForms('add-messenger-account-form')">
+            <i class="fa fa-facebook-f" aria-hidden="true"></i> Messenger
+        </a>
+        <a href="#" onclick="">
+            <i class="fa fa-slack" aria-hidden="true"></i> Slack
+        </a>
+
+        <a href="#" onclick="">
+            <i class="fa fa-skype" aria-hidden="true"></i> Skype
+        </a>
 
 
-    <!--TODO - just for testing/example, we can make this nicer-->
+        <!--TODO - just for testing/example, we can make this nicer-->
 
-    <div id="add-messenger-account-form" style="display: none">
+        <div id="add-messenger-account-form" style="display: none">
 
-        <form name="messenger-form"  onsubmit="SettingsView.addAccountFormSubmitted(AccountTypes.Facebook_Messenger)">
+            <form name="messenger-form"  onsubmit="SettingsView.addAccountFormSubmitted(AccountTypes.Facebook_Messenger)">
 
-            <label for="messenger-account-name">Account name</label>
-            <input type="text" id="messenger-account-name" placeholder="Account name" />
+                <label for="messenger-account-name">Account name</label>
+                <input type="text" id="messenger-account-name" placeholder="Account name" />
 
-            <br>
+                <br>
 
-            <input type="checkbox" checked id="messenger-enable-notifications" />
-            <label for="messenger-enable-notifications">Enable notifications</label>
+                <input type="checkbox" checked id="messenger-enable-notifications" />
+                <label for="messenger-enable-notifications">Enable notifications</label>
 
-            <br>
+                <br>
 
-            <input type="checkbox" id="messenger-mute" />
-            <label for="messenger-mute">Mute all sounds</label>
+                <input type="checkbox" id="messenger-mute" />
+                <label for="messenger-mute">Mute all sounds</label>
 
-            <br>
+                <br>
 
-            <input type="submit" />
+                <input type="submit" />
 
-        </form>
+            </form>
+
+        </div>
 
     </div>
 
