@@ -6,9 +6,122 @@ body {
 	margin: 0;
 	font-family: 'Palanquin', sans-serif;
 
-	padding: 5px 15px;
+	padding: 15px 15px;
 
 	background: rgba(240, 240, 240, 1);
 
 }
 
+.prefPane {
+
+	width: 60%;
+	margin: auto;
+
+	background: rgba(255, 255, 255, 1);
+	padding: 15px;
+
+	border-radius: 2px;
+	overflow: hidden;
+
+	margin-bottom: 1em;
+
+}
+
+	.prefPane h2,
+	.prefPane h1 {
+
+		display: block;
+
+		background: rgba(60, 60, 60, 1);
+		color: white;
+
+		margin: -15px;
+		margin-bottom: 15px;
+
+		font-weight: 200;
+
+		padding: 2px 15px;
+		font-size: 16px;
+			
+	}
+
+		.prefPane h1 {
+
+			font-size: 19px;
+
+		}
+
+
+.layoutPreferences {
+
+	width: 100%;
+
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-direction: row;
+    flex-direction: row;
+
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+
+    -webkit-align-content: space-around;
+    align-content: space-around;
+
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+
+}
+
+	.layoutPreferences .layoutType {
+
+		-webkit-order: 0;
+	    order: 0;
+
+	    -webkit-flex: 0 1 auto;
+	    flex: 0 1 auto;
+
+	    -webkit-align-self: auto;
+	    align-self: auto;
+
+	    text-decoration: none;
+
+	    border-radius: 3px;
+	    overflow: hidden;
+
+	    border: 5px solid rgba(255, 255, 255, 0);
+
+
+	}
+
+		.layoutPreferences .layoutType:hover,
+		.layoutPreferences .layoutType.selected {
+
+			border-color: #FFCC00;
+
+		}
+
+		.layoutPreferences .layoutType h3 {
+
+			display: block;
+
+			background: rgba(40, 40, 40, 1);
+			color: white;
+
+			text-align: center;
+
+			margin: 0;
+
+			font-weight: 100;
+			font-size: 14px;
+
+		}
+
+		.layoutPreferences .layoutType img {
+
+			display: block;
+
+		}
