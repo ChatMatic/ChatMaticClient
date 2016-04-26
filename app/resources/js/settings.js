@@ -1,14 +1,31 @@
-var toggleAddAccountForms = function(identifier) {
-    jQuery('#' + identifier).toggle();
+const electron = require('electron');
+const ipcRenderer = electron.ipcRenderer;
 
-};
+var SettingsView = {
+    init: function (){
+        console.log("init");
+    },
 
-var addAccountFormSubmitted = function(formIdentifier) {
+    toggleAddAccountForms: function(identifier) {
+        jQuery('#' + identifier).toggle();
 
-    switch (formIdentifier) {
+    },
 
-        case AccountTypes.Facebook_Messenger:
-            console.log('meow');
+    addAccountFormSubmitted : function(formIdentifier) {
+
+        switch (formIdentifier) {
+
+            case AccountTypes.Facebook_Messenger:
+                console.log('meow');
+
+                console.log(ipcRenderer.sendSync('synchronous-message', 'ping')); // prints "pong"
+
+                ipcRenderer.on('asynchronous-reply', function(event, arg) {
+                    console.log(arg); // prints "pong"
+                });
+                ipcRenderer.send('asynchronous-message', 'ping');
+        }
+
     }
 
 };

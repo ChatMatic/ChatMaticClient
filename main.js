@@ -4,6 +4,7 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const ipcMain = require('electron').ipcMain;
 
 let mainWindow;
 
@@ -77,4 +78,16 @@ app.on('activate', function () {
     if (mainWindow === null) {
         createWindow();
     }
+});
+
+//inter-browser/main process communication
+
+ipcMain.on('asynchronous-message', function(event, arg) {
+    console.log(arg);  // prints "ping"
+    event.sender.send('asynchronous-reply', 'pong');
+});
+
+ipcMain.on('synchronous-message', function(event, arg) {
+    console.log(arg);  // prints "ping"
+    event.returnValue = 'pong';
 });
