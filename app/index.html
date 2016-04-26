@@ -20,11 +20,20 @@
         <a href="#facebook-messenger" onclick="switchWebview('facebook-messenger');">
             <i class="fa fa-facebook-f" aria-hidden="true"></i> Messenger
         </a>
+        <a href="#slack" onclick="switchWebview('slack');">
+            <i class="fa fa-slack" aria-hidden="true"></i> Slack
+        </a>
+        <a href="#skype" onclick="switchWebview('skype');">
+            <i class="fa fa-skype" aria-hidden="true"></i> Skype
+        </a>
+
     </header>
     <div id="webviewCollection">
         <webview id="settings" src="./settings.html"></webview>
         <webview id="whatsapp" src="https://web.whatsapp.com" style="display: none;"></webview>
         <webview id="facebook-messenger" src="https://www.messenger.com" style="display: none;"></webview>
+        <webview id="slack" src="https://slack.com/signin" style="display: none;"></webview>
+        <webview id="skype" src="https://login.skype.com/login" style="display: none;"></webview>
 
     </div>
     <script type='text/javascript' src='./resources/js/main.js'></script>

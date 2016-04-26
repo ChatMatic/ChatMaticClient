@@ -7,4 +7,4 @@ var switchWebview = function(webview){
 	jQuery('#webviewCollection webview').css({ "display": "none" });
 	jQuery('#webviewCollection webview#'+webview).css({ "display": "flex" });
 
-}
+};

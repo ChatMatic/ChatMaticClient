@@ -10,15 +10,15 @@ let mainWindow;
 // packages
 const storage = require('electron-json-storage');
 
-storage.set('foobar', { foo: 'bar' }, function(error) {
-  if (error) throw error;
+storage.set('foobar', {foo: 'bar'}, function (error) {
+    if (error) throw error;
 });
 
 // window function
 function createWindow() {
 
     // load stored browser window data
-    storage.get('windowSize', function(error, windowSize) {
+    storage.get('windowSize', function (error, windowSize) {
 
         // Create the browser window.
         mainWindow = new BrowserWindow({
@@ -32,7 +32,7 @@ function createWindow() {
         mainWindow.loadURL('file://' + __dirname + '/app/index.html');
 
         // Emitted when the window is closed.
-        mainWindow.on('closed', function() {
+        mainWindow.on('closed', function () {
             mainWindow = null;
         });
 
@@ -48,7 +48,7 @@ function createWindow() {
 
 }
 
-function saveWindowBounds(){
+function saveWindowBounds() {
 
     // get the size
     let bounds = mainWindow.getBounds();
@@ -62,7 +62,7 @@ function saveWindowBounds(){
 app.on('ready', createWindow);
 
 // quit
-app.on('window-all-closed', function() {
+app.on('window-all-closed', function () {
 
     // os x stays open
     if (process.platform !== 'darwin') {
@@ -72,10 +72,9 @@ app.on('window-all-closed', function() {
 });
 
 // reactivate closed windows on os x
-app.on('activate', function() {
+app.on('activate', function () {
 
     if (mainWindow === null) {
         createWindow();
     }
-
 });
