@@ -32,9 +32,9 @@
 
     <!--TODO - just for testing/example, we can make this nicer-->
 
-    <div id="add-messenger-account-form" style="display: none" onsubmit="SettingsView.addAccountFormSubmitted(AccountTypes.Facebook_Messenger)">
+    <div id="add-messenger-account-form" style="display: none">
 
-        <form name="messenger-form" onsubmit="">
+        <form name="messenger-form"  onsubmit="SettingsView.addAccountFormSubmitted(AccountTypes.Facebook_Messenger)">
 
             <label for="messenger-account-name">Account name</label>
             <input type="text" id="messenger-account-name" placeholder="Account name" />
@@ -57,8 +57,6 @@
 
     </div>
 
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <!--<script>window.jQuery = window.$ = typeof module === 'object' ? module.exports : jQuery</script>-->
     <script type='text/javascript' src='./resources/js/settings.js'></script>
     <script type='text/javascript' src='./resources/js/account-types-enum.js'></script>
 

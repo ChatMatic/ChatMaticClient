@@ -1,9 +1,13 @@
+// IPC to communicate from webview to main process
 const electron = require('electron');
 const ipcRenderer = electron.ipcRenderer;
 
+// require jquery
+window.$ = window.jQuery = require('./bower_components/jquery/dist/jquery.min.js');
+
 var SettingsView = {
     init: function (){
-        console.log("init");
+        console.log("init settings view");
     },
 
     toggleAddAccountForms: function(identifier) {
@@ -16,16 +20,16 @@ var SettingsView = {
         switch (formIdentifier) {
 
             case AccountTypes.Facebook_Messenger:
-                console.log('meow');
 
-                console.log(ipcRenderer.sendSync('synchronous-message', 'ping')); // prints "pong"
+                ipcRenderer.send('synchronous-message', NewAccount(AccountTypes.Facebook_Messenger, true, false));
 
                 ipcRenderer.on('asynchronous-reply', function(event, arg) {
                     console.log(arg); // prints "pong"
                 });
-                ipcRenderer.send('asynchronous-message', 'ping');
         }
 
     }
 
 };
+
+SettingsView.init();

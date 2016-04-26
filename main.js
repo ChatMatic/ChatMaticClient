@@ -26,7 +26,10 @@ function createWindow() {
             width: windowSize.width,
             height: windowSize.height,
             x: windowSize.x,
-            y: windowSize.y
+            y: windowSize.y,
+            webPreferences: {
+                nodeIntegration: true
+            }
         });
 
         // and load the index.html of the app.
