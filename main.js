@@ -4,7 +4,6 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-const ipcMain = require('electron').ipcMain;
 
 let mainWindow;
 
@@ -81,15 +80,4 @@ app.on('activate', function () {
     if (mainWindow === null) {
         createWindow();
     }
-});
-
-//inter-browser/main process communication
-const IPCMessageKeys = require("./app/resources/js/statics/IPCMessageKeysEnum.js");
-const DataManager = require("./app/resources/js/services/DataManager.js");
-
-ipcMain.on(IPCMessageKeys.AddNewAccount, function(event, arg) {
-    console.log(arg.toString());  // prints "ping"
-
-    DataManager.AddNewAccount(arg);
-
 });

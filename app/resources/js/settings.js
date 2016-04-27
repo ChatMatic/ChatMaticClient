@@ -29,7 +29,15 @@ var SettingsView = {
 
             case AccountTypes.Facebook_Messenger:
 
-                ipcRenderer.send(IPCMessageKeys.AddNewAccount, AccountConfigurationModels.NewAccount(1, 'personal facebook', true, false));
+                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(1, 'personal facebook', true, false), function(error,success){
+
+                    if (!error) {
+                        //update UI
+
+                        this.displayUserAccounts();
+                    }
+
+                });
 
         }
 

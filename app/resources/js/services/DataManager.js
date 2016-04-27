@@ -12,7 +12,7 @@ function count(obj) { return Object.keys(obj).length; }
 
 DataManager = {
 
-  AddNewAccount: function(data) {
+  AddNewAccount: function(data, callback) {
 
       var newStorageObj = {
           0 : data
@@ -43,9 +43,11 @@ DataManager = {
 
               storage.set(StorageKeys.UserAccounts, existingAccounts, function (error) {
                   if (error) {
-                      throw error;
+                       return callback(error, null);
                   } else {
                       console.log("data save success with payload: " +  existingAccounts    );
+
+                      return callback(null, true);
                   }
               });
           }
