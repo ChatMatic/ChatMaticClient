@@ -50,6 +50,8 @@ DataManager = {
                       return callback(null, true);
                   }
               });
+          } else {
+              console.log(error);
           }
 
       });

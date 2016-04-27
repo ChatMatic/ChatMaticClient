@@ -10,6 +10,8 @@ window.$ = window.jQuery = require('./bower_components/jquery/dist/jquery.min.js
 
 function count(obj) { return Object.keys(obj).length; }
 
+var accountTypeSelected = null;
+
 var SettingsView = {
     init: function (){
         console.log("init settings view");
@@ -17,15 +19,19 @@ var SettingsView = {
         this.displayUserAccounts()
     },
 
+    addAccountType: null,
+
     toggleAddAccountForms: function(identifier) {
 
-        jQuery('#' + identifier).toggle();
+        accountTypeSelected = identifier;
+
+        jQuery('#add-account-form').toggle();
 
     },
 
-    addAccountFormSubmitted : function(formIdentifier) {
+    addAccountFormSubmitted : function() {
 
-        switch (formIdentifier) {
+        switch (accountTypeSelected) {
 
             case AccountTypes.Facebook_Messenger:
 
@@ -36,9 +42,44 @@ var SettingsView = {
 
                         this.displayUserAccounts();
                     }
+                });
+                break;
+            case AccountTypes.Slack:
+                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(2, 'company slack', true, false), function(error,success){
+
+                    if (!error) {
+                        //update UI
+
+                        this.displayUserAccounts();
+                    }
 
                 });
+                break;
+            case AccountTypes.Skype:
+                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(3, 'skype', true, false), function(error,success){
 
+                    if (!error) {
+                        //update UI
+
+                        this.displayUserAccounts();
+                    }
+
+                });
+                break;
+            case AccountTypes.WhatsApp:
+                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(4, 'whatsapp', true, false), function(error,success){
+
+                    if (!error) {
+                        //update UI
+
+                        this.displayUserAccounts();
+                    }
+
+                });
+                break;
+            default:
+                console.log("hit default in add new account switch")
+                break;
         }
 
     },
@@ -60,6 +101,7 @@ var SettingsView = {
 
             } else {
                 console.log(error);
+                alert(error.toString());
             }
 
         });

@@ -10,7 +10,7 @@ let mainWindow;
 // packages
 const storage = require('electron-json-storage');
 
-storage.set('foobar', {foo: 'bar'}, function (error) {
+storage.set("user_accounts", null, function (error) {
     if (error) throw error;
 });
 
