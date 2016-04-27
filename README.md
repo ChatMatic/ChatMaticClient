@@ -6,7 +6,7 @@ Install node => 5.9.1
 Then
 ```
 sudo npm install -g electron-prebuilt
-sudo npm install bower -G
+sudo npm install bower -g
 ```
 
 In the project directory
