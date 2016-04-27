@@ -26,7 +26,6 @@
     "electron-prebuilt": "^0.37.0"
   },
   "dependencies": {
-    "electron-json-storage": "^2.0.0",
-    "electron-prebuilt": "^0.37.7"
+    "electron-json-storage": "^2.0.0"
   }
 }
