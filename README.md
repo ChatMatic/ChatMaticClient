@@ -11,3 +11,8 @@ In the project directory
 bower install
 npm install && npm start
 ```
+
+
+## Kanban board
+
+https://waffle.io/philhudson91/SwagChat
