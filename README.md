@@ -1,6 +1,9 @@
 # Electron based cross platform chat application
 
 ## Install Instructions
+
+Install node => 5.9.1
+Then
 ```
 sudo npm install -g electron-prebuilt
 sudo npm install bower -G
