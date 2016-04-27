@@ -3,10 +3,12 @@ const electron = require('electron');
 const ipcRenderer = electron.ipcRenderer;
 //var IPCMessageKeys = require("./js/statics/IPCMessageKeysEnum.js");
 //var AccountConfigurationModels = require("./js/models/AccountConfigurationStorageModel.js");
-//var DataManager = require("./js/services/DataManager.js");
+var DataManager = require("./resources/js/services/DataManager.js");
 
 // require jquery
 window.$ = window.jQuery = require('./bower_components/jquery/dist/jquery.min.js');
+
+function count(obj) { return Object.keys(obj).length; }
 
 var SettingsView = {
     init: function (){
@@ -39,7 +41,15 @@ var SettingsView = {
 
             if (!error) {
                 console.log('existing accounts ' + JSON.stringify(data));
-                document.getElementById('accountResults').innerHTML = "<p>" + data + "</p>";
+
+                for (var i=0;i<count(data); i++) {
+
+                    var account = JSON.stringify(data[i]);
+
+                    $("#accountResults").append('<li><a href="#">'+ account +'</a></li>');
+
+                }
+
             } else {
                 console.log(error);
             }
