@@ -8,7 +8,6 @@ sudo npm install bower -G
 
 In the project directory
 ```
-npm install
 bower install
-electron .
+npm install && npm start
 ```
