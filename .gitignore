@@ -22,4 +22,4 @@ node_modules/
 debug.log
 npm-debug.log
 
-bower_components
+app/bower_components
