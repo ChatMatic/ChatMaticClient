@@ -3,7 +3,7 @@
 ## Install Instructions
 ```
 sudo npm install -g electron-prebuilt
-sudo npm install bower-cli -G
+sudo npm install bower -G
 ```
 
 In the project directory
