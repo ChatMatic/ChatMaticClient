@@ -64,7 +64,6 @@ DataManager = {
                 return callback(null, data);
             }
         });
-
     }
 
 };

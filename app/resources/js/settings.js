@@ -3,7 +3,7 @@ const electron = require('electron');
 const ipcRenderer = electron.ipcRenderer;
 //var IPCMessageKeys = require("./js/statics/IPCMessageKeysEnum.js");
 //var AccountConfigurationModels = require("./js/models/AccountConfigurationStorageModel.js");
-var DataManager = require("./js/services/DataManager.js");
+//var DataManager = require("./js/services/DataManager.js");
 
 // require jquery
 window.$ = window.jQuery = require('./bower_components/jquery/dist/jquery.min.js');
