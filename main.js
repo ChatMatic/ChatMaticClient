@@ -84,17 +84,6 @@ app.on('activate', function () {
 });
 
 //inter-browser/main process communication
-
-ipcMain.on('asynchronous-message', function(event, arg) {
-    console.log(arg);  // prints "ping"
-    event.sender.send('asynchronous-reply', 'pong');
-
-});
-
-ipcMain.on('synchronous-messag', function(event, arg) {
-    console.log(arg);  // prints "ping"
-    event.returnValue = 'pong';
-});
 const IPCMessageKeys = require("./app/resources/js/statics/IPCMessageKeysEnum.js");
 const DataManager = require("./app/resources/js/services/DataManager.js");
 

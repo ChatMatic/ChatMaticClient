@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Palanquin:400,300,100,200,700,600,500" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="./resources/css/settings.css" />
+    <link rel="stylesheet" href="resources/css/settings.css" />
 </head>
 <body>
 
@@ -16,6 +16,13 @@
 
         <p><strong>This is just a test setup to make layout changes possible in the future. The design sucks and needs to be redone by someone with actual design talent.</strong></p>
     </div>
+
+    <div class="prefPane">
+        <h1>Accounts</h1>
+        <div id="accountResults">
+
+        </div>
+   </div>
 
     <div class="prefPane">
         <h2>Layout preferences</h2>
@@ -88,8 +95,11 @@
 
     </div>
 
-    <script type='text/javascript' src='./resources/js/settings.js'></script>
-    <script type='text/javascript' src='./resources/js/account-types-enum.js'></script>
-
+    <script type='text/javascript' src='resources/js/settings.js'></script>
+    <script type='text/javascript' src='resources/js/account-types-enum.js'></script>
+    <script type='text/javascript' src='resources/js/statics/IPCMessageKeysEnum.js'></script>
+    <script type='text/javascript' src='resources/js/statics/StorageKeysEnum.js'></script>
+    <script type='text/javascript' src='resources/js/services/DataManager.js'></script>
+    <script type='text/javascript' src='resources/js/models/AccountConfigurationStorageModel.js'></script>
 </body>
 </html>
