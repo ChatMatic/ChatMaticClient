@@ -68,17 +68,17 @@
 
         <!--TODO - just for testing/example, we can make this nicer-->
 
-        <div id="add-account-form" style="display: none">
+        <div id="add-account" style="display: none">
 
-            <form name="messenger-form"  onsubmit="SettingsView.addAccountFormSubmitted()">
+            <form name="add-account-form"  onsubmit="SettingsView.addAccountFormSubmitted()">
 
-                <label for="account-name">Account name</label>
-                <input type="text" id="account-name" placeholder="Account name" />
+                <label for="accountName">Account name</label>
+                <input type="text" id="accountName" placeholder="Account name" />
 
                 <br>
 
-                <input type="checkbox" checked id="enable-notifications" />
-                <label for="enable-notifications">Enable notifications</label>
+                <input type="checkbox" checked id="enableNotifications" />
+                <label for="enableNotifications">Enable notifications</label>
 
                 <br>
 
@@ -97,9 +97,8 @@
 
     <script type='text/javascript' src='resources/js/settings.js'></script>
     <script type='text/javascript' src='resources/js/account-types-enum.js'></script>
-    <script type='text/javascript' src='resources/js/statics/IPCMessageKeysEnum.js'></script>
     <script type='text/javascript' src='resources/js/statics/StorageKeysEnum.js'></script>
     <!--<script type='text/javascript' src='resources/js/services/DataManager.js'></script>-->
-    <script type='text/javascript' src='resources/js/models/AccountConfigurationStorageModel.js'></script>
+    <!--<script type='text/javascript' src='resources/js/models/AccountConfigurationStorageModel.js'></script>-->
 </body>
 </html>

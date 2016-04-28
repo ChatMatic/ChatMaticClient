@@ -2,7 +2,7 @@
 const electron = require('electron');
 const ipcRenderer = electron.ipcRenderer;
 //var IPCMessageKeys = require("./js/statics/IPCMessageKeysEnum.js");
-//var AccountConfigurationModels = require("./js/models/AccountConfigurationStorageModel.js");
+var AccountConfigurationModels = require("./resources/js/models/AccountConfigurationStorageModel.js");
 var DataManager = require("./resources/js/services/DataManager.js");
 
 // require jquery
@@ -25,17 +25,23 @@ var SettingsView = {
 
         accountTypeSelected = identifier;
 
-        jQuery('#add-account-form').toggle();
+        jQuery('#add-account').toggle();
 
     },
 
     addAccountFormSubmitted : function() {
 
+        const form = document.forms["add-account-form"];
+
+        var accountName = form.accountName.value,
+         enableNotifications = form.enableNotifications.checked,
+         mute = form.mute.checked;
+
         switch (accountTypeSelected) {
 
             case AccountTypes.Facebook_Messenger:
 
-                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(1, 'personal facebook', true, false), function(error,success){
+                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(1, accountName, enableNotifications, mute), function(error,success){
 
                     if (!error) {
                         //update UI
@@ -45,7 +51,7 @@ var SettingsView = {
                 });
                 break;
             case AccountTypes.Slack:
-                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(2, 'company slack', true, false), function(error,success){
+                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(2, accountName, enableNotifications, mute), function(error,success){
 
                     if (!error) {
                         //update UI
@@ -56,7 +62,7 @@ var SettingsView = {
                 });
                 break;
             case AccountTypes.Skype:
-                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(3, 'skype', true, false), function(error,success){
+                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(3, accountName, enableNotifications, mute), function(error,success){
 
                     if (!error) {
                         //update UI
@@ -67,7 +73,7 @@ var SettingsView = {
                 });
                 break;
             case AccountTypes.WhatsApp:
-                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(4, 'whatsapp', true, false), function(error,success){
+                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(4, accountName, enableNotifications, mute), function(error,success){
 
                     if (!error) {
                         //update UI
@@ -78,7 +84,7 @@ var SettingsView = {
                 });
                 break;
             default:
-                console.log("hit default in add new account switch")
+                console.log("hit default in add new account switch");
                 break;
         }
 
