@@ -10,6 +10,7 @@ let mainWindow;
 // packages
 const storage = require('electron-json-storage');
 
+//TODO: Dev - resets local storage on load
 storage.set("user_accounts", null, function (error) {
     if (error) throw error;
 });
@@ -81,3 +82,29 @@ app.on('activate', function () {
         createWindow();
     }
 });
+
+const EnabledServicesAPI = require("./app/resources/js/services/EnabledServicesAPI.js");
+const DataManager = require("./app/resources/js/services/DataManager.js");
+
+function populatedEnabledServices() {
+ EnabledServicesAPI.getServices(function(error,data){
+
+     if (!error) {
+         console.log(data);
+         DataManager.SaveEnabledServices(data, function(error, success){
+             if (!error) {
+                 console.log('enabled services saved successfully with payload: ' + JSON.stringify(enabledServices));
+             } else {
+                 console.log('enabled services failed to save with error: ' + error);
+             }
+         });
+     } else {
+         console.log('enabled services request failed with error: ' + error);
+
+     }
+
+ });
+
+}
+
+populatedEnabledServices();
