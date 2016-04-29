@@ -93,7 +93,7 @@ function populatedEnabledServices() {
          console.log(data);
          DataManager.SaveEnabledServices(data, function(error, success){
              if (!error) {
-                 console.log('enabled services saved successfully with payload: ' + JSON.stringify(enabledServices));
+                 console.log('enabled services saved successfully with payload: ' + JSON.stringify(success));
              } else {
                  console.log('enabled services failed to save with error: ' + error);
              }
