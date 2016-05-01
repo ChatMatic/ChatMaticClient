@@ -1,6 +1,9 @@
 var request = require('request');
-const DataManager = require("./DataManager.js");
 
+
+if (!DataManager) {
+var DataManager = require("./DataManager.js");
+}
 
 EnabledServicesAPI = {
 
