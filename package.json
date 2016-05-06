@@ -4,18 +4,22 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js"
+    "dev": "electron --debug=5858 ./app",
+    "start": "electron .",
+    "clean": "rm -rf ./dist",
+    "clean:win": "rm -rf ./dist/ChatMatic-win32-x64",
+    "clean:osx": "rm -rf ./dist/ChatMatic-darwin-x64",
+    "clean:linux": "rm -rf ./dist/ChatMatic-linux-x64",
+    "build": "npm run clean && npm run build:osx && npm run build:win && npm run build:linux",
+    "build:win": "npm run clean:win && electron-packager ./app \"ChatMatic\" --out=dist --platform=win32 --arch=x64 --version=0.37.3 --icon=assets/win/ChatMatic.ico",
+    "build:osx": "npm run clean:osx && electron-packager ./app \"ChatMatic\" --out=dist --platform=darwin --arch=x64 --version=0.37.3 --icon=assets/osx/ChatMatic.icns",
+    "build:linux": "npm run clean:linux && electron-packager ./app \"ChatMatic\" --out=dist --platform=linux --arch=x64 --version=0.37.3 --icon=assets/win/ChatMatic.ico"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/electron/electron-quick-start.git"
   },
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial"
-  ],
+  "keywords": [],
   "author": "GitHub",
   "license": "CC0-1.0",
   "bugs": {
@@ -23,7 +27,8 @@
   },
   "homepage": "https://github.com/electron/electron-quick-start#readme",
   "devDependencies": {
-    "electron-prebuilt": "^0.37.0"
+    "electron-prebuilt": "^0.37.0",
+    "electron-packager": "^6.0.0"
   },
   "dependencies": {
     "electron-json-storage": "^2.0.0",
