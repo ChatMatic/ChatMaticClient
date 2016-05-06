@@ -42,7 +42,9 @@ function createWindow() {
         });
 
         // and load the index.html of the app.
-        mainWindow.loadURL('file://' + __dirname + '/app/index.html');
+        mainWindow.loadURL('file://' + __dirname + '/app/index.html', {
+            userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.52 Safari/537.36'
+        });
 
         // Emitted when the window is closed.
         mainWindow.on('closed', function () {
