@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Palanquin:400,300,100,200,700,600,500" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="./resources/css/settings.css" />
+    <link rel="stylesheet" href="resources/css/settings.css" />
 </head>
 <body>
 
@@ -16,6 +16,13 @@
 
         <p><strong>This is just a test setup to make layout changes possible in the future. The design sucks and needs to be redone by someone with actual design talent.</strong></p>
     </div>
+
+    <div class="prefPane">
+        <h1>Accounts</h1>
+        <ul id="accountResults">
+
+        </ul>
+   </div>
 
     <div class="prefPane">
         <h2>Layout preferences</h2>
@@ -44,39 +51,39 @@
 
         <h2>Phil tests</h2>
 
-        <a href="#" onclick="">
+        <a href="#"  onclick="SettingsView.toggleAddAccountForms(AccountTypes.WhatsApp)">
             <i class="fa fa-whatsapp" aria-hidden="true"></i> Whatsapp
         </a>
-        <a href="#" id="add-messenger-account" onclick="SettingsView.toggleAddAccountForms('add-messenger-account-form')">
+        <a href="#" id="add-messenger-account" onclick="SettingsView.toggleAddAccountForms(AccountTypes.Facebook_Messenger)">
             <i class="fa fa-facebook-f" aria-hidden="true"></i> Messenger
         </a>
-        <a href="#" onclick="">
-            <i class="fa fa-slack" aria-hidden="true"></i> Slack
+        <a href="#" onclick="SettingsView.toggleAddAccountForms(AccountTypes.Slack)">
+            <i class="fa fa-slack" aria-hidden="true" ></i> Slack
         </a>
 
-        <a href="#" onclick="">
+        <a href="#"  onclick="SettingsView.toggleAddAccountForms(AccountTypes.Skype)">
             <i class="fa fa-skype" aria-hidden="true"></i> Skype
         </a>
 
 
         <!--TODO - just for testing/example, we can make this nicer-->
 
-        <div id="add-messenger-account-form" style="display: none">
+        <div id="add-account" style="display: none">
 
-            <form name="messenger-form"  onsubmit="SettingsView.addAccountFormSubmitted(AccountTypes.Facebook_Messenger)">
+            <form name="add-account-form"  onsubmit="SettingsView.addAccountFormSubmitted()">
 
-                <label for="messenger-account-name">Account name</label>
-                <input type="text" id="messenger-account-name" placeholder="Account name" />
-
-                <br>
-
-                <input type="checkbox" checked id="messenger-enable-notifications" />
-                <label for="messenger-enable-notifications">Enable notifications</label>
+                <label for="accountName">Account name</label>
+                <input type="text" id="accountName" placeholder="Account name" />
 
                 <br>
 
-                <input type="checkbox" id="messenger-mute" />
-                <label for="messenger-mute">Mute all sounds</label>
+                <input type="checkbox" checked id="enableNotifications" />
+                <label for="enableNotifications">Enable notifications</label>
+
+                <br>
+
+                <input type="checkbox" id="mute" />
+                <label for="mute">Mute all sounds</label>
 
                 <br>
 
@@ -88,8 +95,10 @@
 
     </div>
 
-    <script type='text/javascript' src='./resources/js/settings.js'></script>
-    <script type='text/javascript' src='./resources/js/account-types-enum.js'></script>
-
+    <script type='text/javascript' src='resources/js/settings.js'></script>
+    <script type='text/javascript' src='resources/js/account-types-enum.js'></script>
+    <script type='text/javascript' src='resources/js/statics/StorageKeysEnum.js'></script>
+    <script type='text/javascript' src='resources/js/services/DataManager.js'></script>
+    <!--<script type='text/javascript' src='resources/js/models/AccountConfigurationStorageModel.js'></script>-->
 </body>
 </html>

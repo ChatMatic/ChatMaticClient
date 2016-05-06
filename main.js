@@ -4,14 +4,23 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-const ipcMain = require('electron').ipcMain;
+const MenuItem = require('menu-item');
+const AppTray = require('tray');
+const fileSystem = require('fs');
 
 let mainWindow;
 
 // packages
 const storage = require('electron-json-storage');
+const EnabledServicesAPI = require("./app/resources/js/services/EnabledServicesAPI.js");
+const PlatformIdentificationService = require("./app/resources/js/services/PlatformIdentificationService.js");
 
-storage.set('foobar', {foo: 'bar'}, function (error) {
+EnabledServicesAPI.populateEnabledServices();
+
+console.log(PlatformIdentificationService.getCurrentPlatform());
+
+//TODO: Dev - resets local storage on load
+storage.set("user_accounts", null, function (error) {
     if (error) throw error;
 });
 
@@ -81,16 +90,4 @@ app.on('activate', function () {
     if (mainWindow === null) {
         createWindow();
     }
-});
-
-//inter-browser/main process communication
-
-ipcMain.on('asynchronous-message', function(event, arg) {
-    console.log(arg);  // prints "ping"
-    event.sender.send('asynchronous-reply', 'pong');
-});
-
-ipcMain.on('synchronous-message', function(event, arg) {
-    console.log(arg);  // prints "ping"
-    event.returnValue = 'pong';
 });
