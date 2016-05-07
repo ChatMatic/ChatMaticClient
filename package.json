@@ -1,7 +1,7 @@
 {
-  "name": "electron-quick-start",
+  "name": "ChatMatic",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Electron based cross platform chat application",
   "main": "main.js",
   "scripts": {
     "dev": "electron --debug=5858 ./app",
@@ -17,15 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron/electron-quick-start.git"
+    "url": "git+https://github.com/ChatMatic/ChatMaticClient.git"
   },
   "keywords": [],
-  "author": "GitHub",
+  "author": "ChatMatic",
   "license": "CC0-1.0",
   "bugs": {
-    "url": "https://github.com/electron/electron-quick-start/issues"
+    "url": "https://github.com/ChatMatic/ChatMaticClient/issues"
   },
-  "homepage": "https://github.com/electron/electron-quick-start#readme",
+  "homepage": "https://github.com/ChatMatic/ChatMaticClient#readme",
   "devDependencies": {
     "electron-prebuilt": "^0.37.0",
     "electron-packager": "^6.0.0"

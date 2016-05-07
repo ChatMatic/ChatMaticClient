@@ -1,11 +1,11 @@
 {
-  "name": "swagchat",
-  "description": "Electron based chat application",
+  "name": "ChatMatic",
+  "description": "Electron based cross platform chat application",
   "authors": [
     "jdegger",
     "philhudson91"
   ],
-  "homepage": "https://github.com/philhudson91/SwagChat",
+  "homepage": "https://github.com/ChatMatic/ChatMaticClient",
   "private": true,
   "ignore": [
     "**/.*",
