@@ -22,6 +22,13 @@ function injectWebview(data){
 	$("header").append(header);
 }
 
+function updateWebviews(){
+
+	//get data for webviews
+	//for loop through them calling inject
+
+}
+
 function init(){
 	injectWebview({url:"http://www.google.com", id : 1, name: "shit"});
 }

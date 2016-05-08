@@ -12,11 +12,20 @@ function count(obj) { return Object.keys(obj).length; }
 
 var accountTypeSelected = null;
 
+function appendServiceToDOM(data){
+    alert(data);
+    var account = '<a href="#"  onclick="SettingsView.toggleAddAccountForms(' + data.id + ')"> <i class="fa fa-whatsapp" aria-hidden="true"></i>' + data.name + '</a>';
+
+    $("#availableServices").append(account)
+
+}
+
 var SettingsView = {
     init: function (){
         console.log("init settings view");
 
-        this.displayUserAccounts()
+        this.displayUserAccounts();
+        this.populateAddAccount();
     },
 
     addAccountType: null,
@@ -28,7 +37,24 @@ var SettingsView = {
         jQuery('#add-account').toggle();
 
     },
+    populateAddAccount: function(){
 
+        DataManager.GetEnabledServices(
+            function(error, data) {
+                if (error) {
+                    console.log("it's fucked, could not get enabled services from datamanager");
+                }
+
+                data = JSON.parse(data);
+
+                for (var i = 0; i < data.length; i++) {
+
+                    appendServiceToDOM(data[i]);
+                }
+            }
+        )
+
+    },
     addAccountFormSubmitted : function() {
 
         const form = document.forms["add-account-form"];
@@ -111,7 +137,6 @@ var SettingsView = {
             }
 
         });
-
     }
 
 };
