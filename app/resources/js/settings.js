@@ -10,10 +10,10 @@ window.$ = window.jQuery = require('./bower_components/jquery/dist/jquery.min.js
 
 function count(obj) { return Object.keys(obj).length; }
 
-var accountTypeSelected = null;
+// TODO: this is shit, refactor the crap out of this mofo
+var accountIdSelected = null;
 
 function appendServiceToDOM(data){
-    alert(data);
     var account = '<a href="#"  onclick="SettingsView.toggleAddAccountForms(' + data.id + ')"> <i class="fa fa-whatsapp" aria-hidden="true"></i>' + data.name + '</a>';
 
     $("#availableServices").append(account)
@@ -32,7 +32,7 @@ var SettingsView = {
 
     toggleAddAccountForms: function(identifier) {
 
-        accountTypeSelected = identifier;
+        accountIdSelected = identifier;
 
         jQuery('#add-account').toggle();
 
@@ -63,56 +63,16 @@ var SettingsView = {
          enableNotifications = form.enableNotifications.checked,
          mute = form.mute.checked;
 
-        switch (accountTypeSelected) {
+        DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(accountIdSelected, accountName, enableNotifications, mute), function(error,success){
 
-            case AccountTypes.Facebook_Messenger:
+            if (!error) {
+                //update UI
 
-                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(1, accountName, enableNotifications, mute), function(error,success){
+                this.displayUserAccounts();
+            }
 
-                    if (!error) {
-                        //update UI
+        });
 
-                        this.displayUserAccounts();
-                    }
-                });
-                break;
-            case AccountTypes.Slack:
-                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(2, accountName, enableNotifications, mute), function(error,success){
-
-                    if (!error) {
-                        //update UI
-
-                        this.displayUserAccounts();
-                    }
-
-                });
-                break;
-            case AccountTypes.Skype:
-                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(3, accountName, enableNotifications, mute), function(error,success){
-
-                    if (!error) {
-                        //update UI
-
-                        this.displayUserAccounts();
-                    }
-
-                });
-                break;
-            case AccountTypes.WhatsApp:
-                DataManager.AddNewAccount(AccountConfigurationModels.NewAccount(4, accountName, enableNotifications, mute), function(error,success){
-
-                    if (!error) {
-                        //update UI
-
-                        this.displayUserAccounts();
-                    }
-
-                });
-                break;
-            default:
-                console.log("hit default in add new account switch");
-                break;
-        }
 
     },
 
