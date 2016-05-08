@@ -7,22 +7,21 @@ const BrowserWindow = electron.BrowserWindow;
 const MenuItem = require('menu-item');
 const AppTray = require('tray');
 const fileSystem = require('fs');
-
-let mainWindow;
-
-// packages
 const storage = require('electron-json-storage');
 const EnabledServicesAPI = require("./app/resources/js/services/EnabledServicesAPI.js");
 const PlatformIdentificationService = require("./app/resources/js/services/PlatformIdentificationService.js");
 
+var mainWindow;
+
+//populate enabled services
 EnabledServicesAPI.populateEnabledServices();
 
 console.log(PlatformIdentificationService.getCurrentPlatform());
 
 //TODO: Dev - resets local storage on load
-storage.set("user_accounts", null, function (error) {
-    if (error) throw error;
-});
+//storage.set("user_accounts", null, function (error) {
+//    if (error) throw error;
+//});
 
 // window function
 function createWindow() {
@@ -66,7 +65,7 @@ function createWindow() {
 function saveWindowBounds() {
 
     // get the size
-    let bounds = mainWindow.getBounds();
+    var bounds = mainWindow.getBounds();
 
     // save size
     storage.set('windowSize', bounds);
