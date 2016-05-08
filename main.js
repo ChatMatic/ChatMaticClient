@@ -7,14 +7,13 @@ const BrowserWindow = electron.BrowserWindow;
 const MenuItem = require('menu-item');
 const AppTray = require('tray');
 const fileSystem = require('fs');
-
-let mainWindow;
-
-// packages
 const storage = require('electron-json-storage');
 const EnabledServicesAPI = require("./app/resources/js/services/EnabledServicesAPI.js");
 const PlatformIdentificationService = require("./app/resources/js/services/PlatformIdentificationService.js");
 
+let mainWindow;
+
+//populate enabled services
 EnabledServicesAPI.populateEnabledServices();
 
 console.log(PlatformIdentificationService.getCurrentPlatform());
